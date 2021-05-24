@@ -6,6 +6,6 @@ import { get, controller } from './decorators/index';
 class RootController {
 	@get('/')
 	getRootPage(req: Request, res: Response){
-		res.render('index', { title: 'POD Generator' });
+		res.send({ title: 'Emaily' });
 	}
 }

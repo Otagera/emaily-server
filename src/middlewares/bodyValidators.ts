@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction, RequestHandler} from 'express';
-import { upload } from './multer';
 
 export const bodyValidators = function (keys: string): RequestHandler {
 	return function(req: Request, res: Response, next: NextFunction){

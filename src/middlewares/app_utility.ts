@@ -1,4 +1,7 @@
 import * as http from 'http';
+import debug from 'debug';
+
+const localDebug = debug('emaily:server');
 
 /**
  * Normalize a port into a number, string, or false.
@@ -49,7 +52,7 @@ export const onListening = (server: http.Server, port: string) => {
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : (addr)? 'port ' + addr.port: '';
-  debug('Listening on ' + bind);
+  localDebug('Listening on ' + bind);
   console.log("=============");
   console.log("App is listening from port: " + port);
   console.log("=============");

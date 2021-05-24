@@ -71,25 +71,18 @@ app.use((err: any, req: Request, res: Response, next: NextFunction)=>{
   res.render('error');
 });
 
-/**
- * Module dependencies.
- */
-
-var debug = require('debug')('emaily:server');
 
 /**
  * Get port from environment and store in Express.
  */
-var port: string = normalizePort(process.env.PORT || '3000');
-
+const port: string = normalizePort(process.env.PORT || '3000');
 
 app.set('port', port);
-
 
 /**
  * Listen on provided port, on all network interfaces.
  */
- 
+
 server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+server.on('error', (e)=>onError(e, port));
+server.on('listening', ()=>onListening(server, port));
