@@ -1,6 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
 import { get, post, bodyValidator, controller, del, use } from './decorators/index';
-import { Products, FacilitiesMap } from '../interfaces';
 
 const testm = (req, res, next)=>{
 	console.log('testm');
