@@ -1,7 +1,5 @@
-import Excel  from 'exceljs';
 import { Request, Response, NextFunction } from 'express';
 import { get, post, bodyValidator, controller, del, use } from './decorators/index';
-import { upload, clearUploads } from '../middlewares';
 import { Products, FacilitiesMap } from '../interfaces';
 
 const testm = (req, res, next)=>{
@@ -14,10 +12,13 @@ const testt = (req, res, next)=>{
 }
 @controller('/api')
 class APIController {
-	@post('/file')
-	@use(upload.single('excelFileURL'))
+	@post('/test')
 	async sendFile(req: Request, res: Response){
-		const { file } = req;
+		res.send({ hello: 'world!' });
+	}
+}
+/**
+const { file } = req;
 	    let fileURL = (file)? file.path: '';
 	    console.log(fileURL);
 	    try{
@@ -194,6 +195,5 @@ class APIController {
 	    } catch(err){
 		    console.log(err);
 			return res.statusJson(500, { err });
-		}		
-	}
-}
+		}	
+*/
